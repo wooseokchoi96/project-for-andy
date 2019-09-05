@@ -1,0 +1,19 @@
+<h1>Patient's Info</h1>
+Name: <%=@patient.name%>
+<br>
+Age: <%=@patient.age%>
+<br>
+<%if @patient.my_dog%>
+    <%=button_to "Look at my dog!", dog_path(@patient), method: :get%>
+<%else%>
+    I don't have a dog.
+<%end%>
+<br>
+My Appointments: 
+<ul>
+    <%@patient.appointments.each do |appointment|%>
+        <li><%=link_to appointment.date, appointment_path(appointment)%></li>
+    <%end%>
+</ul>
+<br>
+<%=button_to "See All Patients", patients_path, method: :get%>

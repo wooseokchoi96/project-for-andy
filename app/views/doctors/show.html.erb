@@ -1,0 +1,13 @@
+<h1>Doctor's Info</h1>
+Name: <%=@doctor.name%>
+<br>
+Age: <%=@doctor.age%>
+<br>
+My Appointments: 
+<ul>
+    <%@doctor.appointments.each do |appointment|%>
+        <li><%=link_to appointment.date, appointment_path(appointment)%></li>
+    <%end%>
+</ul>
+<br>
+<%=button_to "See All Doctors", doctors_path, method: :get%>

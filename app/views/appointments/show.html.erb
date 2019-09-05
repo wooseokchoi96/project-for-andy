@@ -1,0 +1,13 @@
+<h1>My Appointment Info</h1>
+Doctor: <%=link_to @appointment.doctor.name, doctor_path(@appointment.doctor)%>
+<br>
+Patient: <%=link_to @appointment.patient.name, patient_path(@appointment.patient)%>
+<br>
+Description: <%=@appointment.description%>
+<br>
+Date: <%=@appointment.date%>
+<br><br>
+<%=button_to "Edit My Appointment", edit_appointment_path, method: :get%>
+<br>
+<%=button_to "See All Doctors", doctors_path, method: :get%>
+<%=button_to "See All Patients", patients_path, method: :get%>

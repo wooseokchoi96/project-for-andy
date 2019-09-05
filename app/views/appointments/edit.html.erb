@@ -1,0 +1,21 @@
+<h1>Edit Appointment</h1>
+<%if flash[:messages]%>
+    Errors: 
+    <ul>
+        <%flash[:messages].each do |message|%>
+            <li><%=message%></li>
+        <%end%>
+    </ul>
+<%end%>
+
+<%=form_for @appointment do |f|%>
+    <label>Doctor:</label>
+    <%=f.collection_select :doctor_id, @doctors, :id, :name, prompt: "Select Doctor"%><br>
+    <label>Patient:</label>
+    <%=f.collection_select :patient_id, @patients, :id, :name, prompt: "Select Your Name"%><br><br>
+    <label>Description:</label>
+    <%=f.text_area :description%></br>
+    <label>Date:</label>
+    <%=f.text_field :date, placeholder: "MM/DD/YY"%></br>
+    <%=f.submit :Edit%>
+<%end%>

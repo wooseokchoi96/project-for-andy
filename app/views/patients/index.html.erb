@@ -1,0 +1,9 @@
+<h1>All Patients</h1>
+<%=button_to "Create Appointment", new_appointment_path, method: :get%>
+<ul>
+<%@patients.each do |patient|%>
+    <li><%=link_to patient.name, patient_path(patient)%></li>
+<%end%>
+</ul>
+<br>
+<%=button_to "See All Doctors", doctors_path, method: :get%>
